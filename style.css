@@ -1,107 +1,82 @@
-:root {
-    --dark-cyan: hsl(185, 75%, 39%);
-    --very-dark-desaturated: hsl(229, 23%, 23%);
-    --dark-grayish-blue: hsl(227, 10%, 46%);
-    --dark-gray: hsl(0, 0%, 59%);
-  }
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: rgb(219, 247, 247);
+}
+.container{
+  width: 20rem;  
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
   
-  html {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    font-size: 62.5%;
-  }
-  
-  *, *:before, *:after {
-    -webkit-box-sizing: inherit;
-            box-sizing: inherit;
-  }
-  
-  body {
-    font-family: 'Kumbh Sans', sans-serif;
-    background-color: var(--dark-cyan);
-    background-position: right 50vw bottom 50vh, left 50vw top 50vh;
-  }
-  
-  .flex {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    height: 100vh;
-  }
-  
-  .card {
-    background-color: white;
-    width: 326px;
-    border-radius: 16px;
-    overflow: hidden;
-    -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  }
-  
-  .card-header {
-    width: 100%;
-    display: block;
-  }
-  
-  .card-body {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    border-bottom: 1px solid rgba(153, 153, 153, 0.383);
-  }
-  
-  .card-body-img {
-    width: 100px;
-    border: 5px solid white;
-    border-radius: 50%;
-    margin-top: calc(-48px - 5px);
-    background-color: rgb(255, 255, 255);
-  }
-  
-  .card-body-title {
-    margin-top: 2rem;
-    font-size: 1.8rem;
-  }
-  
-  .card-body-title span {
-    color: var(--dark-gray);
-    font-weight: 400;
-  }
-  
-  .card-body-text {
-    color: var(--dark-gray);
-    font-size: 1.6rem;
-    margin-top: 0;
-    margin-bottom: 2rem;
-  }
-  
-  .card-footer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-  }
-  
-  .card-footer-social {
-    text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .card-footer-social p {
-    letter-spacing: 1px;
-  }
+}
+.card{
+  width: 100%;
+  padding: 2rem 1.3rem;  
+
+  background: radial-gradient(circle at 50% 0%, orange 36%, #fff 36%);
+  box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+  border-radius: 0.5rem;
+}
+.card img{
+  display: block;
+  width: 6.25rem;
+  max-height: 44rem;
+  position: relative;
+  margin: 1.3rem auto;
+}
+
+.hp{
+  width: 5rem;
+  background-color: #fff;
+  text-align: center;
+  padding: 0.5rem 0;
+  border-radius: 1.9rem;
+  margin-left: auto;
+  font-weight: 400;
+}
+.poke-name{
+  text-align: center;
+  font-weight: 600;
+}
+.types{
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0 40px 0;
+}
+.hp span, .types span{
+  font-size: 0.9rem;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+}
+.types span{
+
+}
+
+.stats{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+.stats p{
+  color: rgb(66, 66, 66);
+}
+
+.btn{
+  display: block;
+  padding: 1rem 4rem;
+  font-size: 1.1rem;
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  cursor: pointer;
+  margin: 2rem auto;
+  position: relative;
+  border: none;
+  border-radius: 0.3rem;
+}
+
