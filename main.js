@@ -1,27 +1,23 @@
-// //  ------------ Variables ------------
-
-// function randomInt(min, max) {
-//     return Math.floor(Math.random() * (max - min)) + min;
-// }
-// console.log(randomInt(1, 265))
-
-// document.addEventListener('DOMContentLoaded', function(){
-//     const random = randomInt(1, 265);
-//     fetchData(random)
-// })
-
-// // ------------ Fetch ---------------
-
-// const fetchData = async (id) => {
-//     try{
-//         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-//         const data = await res.json()
-//         console.log(data)
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
-
+const typeColor = {
+  bug: "#26de81",
+  dark: "#1c0041",
+  dragon: "#ffeaa7",
+  electric: "#fed330",
+  fairy: "#FF0069",
+  fighting: "#30336b",
+  fire: "#f0932b",
+  flying: "#81ecec",
+  grass: "#00b894",
+  ground: "#EFB549",
+  ghost: "#a55eea",
+  ice: "#74b9ff",
+  normal: "#95afc0",
+  poison: "#6c5ce7",
+  psychic: "#a29bfe",
+  rock: "#2d3436",
+  steel: "#819797",
+  water: "#0190FF",
+} 
 const url = "https://pokeapi.co/api/v2/pokemon/";
 const $card = document.querySelector(".card");
 const $btn = document.querySelector(".btn");
@@ -44,10 +40,16 @@ let generateCard = (data) => {
   console.log(data);
   const $hp = data.stats[0].base_stat;
   const $img = data.sprites.other.dream_world.front_default;
-  const $pokeName = data.name;
+  const $pokeName = data.name[0].toUpperCase() + data.name.slice(1);
   const $attack = data.stats[1].base_stat;
   const $defense = data.stats[2].base_stat;
   const $speed = data.stats[5].base_stat;
+
+  // set themeColor based on pokemon types
+
+  const themeColor = typeColor[data.types[0].type.name];
+  
+
 
   $card.innerHTML = `
   <p class="hp">
@@ -56,9 +58,7 @@ let generateCard = (data) => {
             </p>
             <img src="${$img}" alt="Imagen de ${$pokeName}">
             <h2 class="poke-name">${$pokeName}</h2>
-            <div class="types">
-                <span>Type 1</span>
-                <span>Type 2</span>
+            <div class="types">                
             </div>
             <div class="stats">
                 <div>
@@ -74,6 +74,22 @@ let generateCard = (data) => {
                     <p>Speed</p>
                 </div>
             </div>
-  `
+  `;
+  appendTypes(data.types);
+  styleCard(themeColor);
+};
+let appendTypes = (types)=>{
+  types.forEach((item)=>{
+    let $span = document.createElement('span');
+    $span.textContent = item.type.name;
+    document.querySelector('.types').appendChild($span);
+  });
+};
+
+let styleCard = (color)=>{
+  $card.style.background = `radial-gradient(circle at 50% 0%, ${color} 36%, #fff 36%)`;
+  $card.querySelectorAll('.types span').forEach((typeColor) =>{
+     typeColor.style.backgroundColor = color;
+  });
 
 };
